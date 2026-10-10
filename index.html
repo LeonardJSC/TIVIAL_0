@@ -66,10 +66,6 @@ section{padding:96px 0;position:relative}
 .ali .g{display:grid;grid-template-columns:.9fr 1.3fr;gap:48px;align-items:center}.ali .g>*{min-width:0}
 .pw{background:#1b2029;border-radius:10px;padding:16px 0;box-shadow:0 14px 34px rgba(18,22,29,.25)}
 .pista{height:180px;border-top:5px solid #fff;border-bottom:5px solid #fff;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.track{display:flex;align-items:center;width:max-content;height:100%;animation:avanza 40s linear infinite}
-.pw:hover .track{animation-play-state:paused}
-@keyframes avanza{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.lc{flex:none;width:130px;height:130px;margin-right:70px;border-radius:50%;background:#fff;color:#8a8f98;display:grid;place-items:center;font:700 13px/1.2 var(--h);letter-spacing:.08em;text-align:center}
 .maq{flex:none;width:158px;height:149px;margin-right:70px;background:var(--maq) center/contain no-repeat}
 .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
 .cats div{background:#fff;border:1px solid #dde1e6;padding:14px 8px;text-align:center;font:600 10.5px/1.35 var(--h);letter-spacing:.08em;text-transform:uppercase}
@@ -124,6 +120,42 @@ section{padding:96px 0;position:relative}
 .mole img{height:56px;width:auto;display:block;pointer-events:none;user-select:none}
 .mole.hop{animation:boing .9s cubic-bezier(.3,.7,.4,1)}
 @keyframes boing{0%{transform:none}14%{transform:scale(1.2,.78)}34%{transform:translateY(-6px) scale(.92,1.12)}54%{transform:scale(1.1,.88)}72%{transform:translateY(-3px) scale(.97,1.04)}88%{transform:scale(1.03,.97)}100%{transform:none}}
+[hidden]{display:none!important}
+.pw{position:relative}
+.pista{cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.pista *{cursor:grab}.pista.dragging,.pista.dragging *{cursor:grabbing}
+.track{display:flex;align-items:center;width:max-content;height:100%;will-change:transform}
+.lc{position:relative;overflow:hidden;flex:none;width:130px;height:130px;margin-right:70px;border-radius:50%;border:0;padding:0;background:#fff;color:#8a8f98;display:grid;place-items:center;font:700 13px/1.2 var(--h);letter-spacing:.08em;text-align:center;transition:transform .3s cubic-bezier(.3,1.5,.5,1),box-shadow .25s}
+.lc:hover,.lc:focus-visible{transform:scale(1.1);box-shadow:0 0 0 3px rgba(232,119,43,.85)}
+.lc::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(150,175,215,.5) 45%,#fff 50%,rgba(150,175,215,.5) 55%,transparent 70%);transform:translateX(-130%);animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%{transform:translateX(-130%)}24%,100%{transform:translateX(130%)}}
+.ver{position:absolute;z-index:3;top:-15px;right:16px;display:inline-flex;gap:8px;align-items:center;background:var(--or);color:#1a1006;border:0;padding:10px 14px;font:600 11px/1 var(--h);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.3);transition:transform .2s}
+.ver:hover{transform:translateY(-2px)}
+.cvc{position:relative;width:min(980px,100%);max-height:100%;overflow:auto;background:var(--bg2);border:1px solid var(--ln);box-shadow:0 30px 80px rgba(0,0,0,.6);padding:44px 36px 36px;animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+.t0{font:800 clamp(22px,2.6vw,30px)/1.15 var(--h);text-transform:uppercase;margin:0 0 8px}
+.sub{color:#b4bcc5;margin:0 0 30px;font-size:14px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:28px 18px}
+.ci{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;background:none;border:0;padding:6px;cursor:pointer;color:inherit;font:inherit}
+.ci .lc{margin:0}.ci:hover .lc{transform:scale(1.1);box-shadow:0 0 0 3px rgba(232,119,43,.85)}
+.ci b{font:600 12.5px/1.3 var(--h);color:#dfe3e8}
+.est{display:inline-flex;align-items:center;gap:7px;font:600 10.5px/1 var(--h);letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.07)}
+.est i{width:8px;height:8px;border-radius:50%}
+.est.on{color:#6ee7a8}.est.on i{background:#3ecf8e;animation:pls 2s infinite}
+.est.off{color:#aab2bb}.est.off i{background:#7b848e}
+@keyframes pls{0%{box-shadow:0 0 0 0 rgba(62,207,142,.6)}70%,100%{box-shadow:0 0 0 7px rgba(62,207,142,0)}}
+.cd{display:grid;grid-template-columns:150px 1fr;gap:36px;align-items:start}
+.cl{display:flex;flex-direction:column;align-items:center;gap:12px}
+.cl .lc{margin:0;width:150px;height:150px}
+.cl .est{animation:unf .5s .4s both}
+.inf2>*{animation:unf .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.3s + var(--k,0)*.13s)}
+@keyframes unf{from{opacity:0;transform:translateY(16px)}}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:14px;margin:14px 0 18px}
+.meta dt{color:#98a2ad}.meta dd{margin:0;color:#e9ecef}
+.inf2 p{color:#c3cad1;margin:0 0 24px}
+.ig{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--h);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#fff;border:2px solid #4a5360;padding:14px 20px;transition:.2s}
+.ig:hover{border-color:var(--or);color:var(--or)}
+.bk{position:absolute;top:12px;right:62px;z-index:5;background:rgba(12,16,22,.7);color:#fff;border:0;padding:0 16px;height:40px;border-radius:20px;font:600 12px/1 var(--h);cursor:pointer;transition:background .2s}
+.bk:hover{background:var(--or);color:#1a1006}
 @media (max-width:900px){
 .bg{display:block}
 .nv{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(12,16,22,.98);padding:6px 28px 16px;transform:translateY(-130%);transition:transform .3s;z-index:-1}
@@ -136,6 +168,7 @@ section{padding:68px 0}
 .st{grid-template-columns:repeat(2,1fr);row-gap:20px}
 .inf{padding:20px 0 0;border-left:0;border-top:1px solid var(--ln)}
 .lc{width:104px;height:104px;margin-right:50px}.maq{width:132px;height:124px;margin-right:50px}.pista{height:150px}
+.cvc{padding:56px 20px 24px}.cd{grid-template-columns:1fr;gap:22px}.cl{align-items:flex-start}.cl .lc{width:112px;height:112px}
 .mc{grid-template-columns:1fr}.ms{min-height:250px}.mt{padding:26px 22px}.md{padding:12px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv,.hero .w>*{opacity:1;transform:none}}
@@ -178,7 +211,7 @@ section{padding:68px 0}
 <div class="rv"><p class="kick o">Alianzas y convenios</p><h2>Juntos hacia grandes proyectos</h2>
 <p class="lead">Fortalecemos nuestro compromiso con la ingeniería vial con apoyo de alianzas y convenios con empresas, instituciones y organizaciones que comparten nuestra visión de desarrollo y mejora de la infraestructura vial.</p>
 <a class="btn d" href="#contacto">Quiero ser aliado →</a></div>
-<div class="rv" style="--d:.15s"><div class="pw"><div class="pista"><div class="track"><div style="display:contents"><div class="lc">LOGO<br>01</div><div class="lc">LOGO<br>02</div><div class="lc">LOGO<br>03</div><div class="lc">LOGO<br>04</div><div class="lc">LOGO<br>05</div><div class="lc">LOGO<br>06</div><div class="lc">LOGO<br>07</div><div class="lc">LOGO<br>08</div><div class="lc">LOGO<br>09</div><div class="lc">LOGO<br>10</div><div class="maq" role="img" aria-label="Rodillo compactador"></div></div><div style="display:contents" aria-hidden="true"><div class="lc">LOGO<br>01</div><div class="lc">LOGO<br>02</div><div class="lc">LOGO<br>03</div><div class="lc">LOGO<br>04</div><div class="lc">LOGO<br>05</div><div class="lc">LOGO<br>06</div><div class="lc">LOGO<br>07</div><div class="lc">LOGO<br>08</div><div class="lc">LOGO<br>09</div><div class="lc">LOGO<br>10</div><div class="maq" role="img" aria-label="Rodillo compactador"></div></div></div></div></div>
+<div class="rv" style="--d:.15s"><div class="pw" id="pw"><button class="ver" id="ver" type="button" aria-label="Ver todos los convenios">Ver todos <span aria-hidden="true">⤢</span></button><div class="pista" id="pista"><div class="track" id="track"><div style="display:contents"><button class="lc" type="button" data-i="0" aria-label="Convenio: Constructora Andina S.A.">LOGO<br>01</button><button class="lc" type="button" data-i="1" aria-label="Convenio: Municipalidad de Los Olivos">LOGO<br>02</button><button class="lc" type="button" data-i="2" aria-label="Convenio: Laboratorio de Suelos y Pavimentos">LOGO<br>03</button><button class="lc" type="button" data-i="3" aria-label="Convenio: Colegio de Ingenieros, capítulo regional">LOGO<br>04</button><button class="lc" type="button" data-i="4" aria-label="Convenio: Asociación Peruana de Vialidad">LOGO<br>05</button><button class="lc" type="button" data-i="5" aria-label="Convenio: Consorcio Vial del Norte">LOGO<br>06</button><button class="lc" type="button" data-i="6" aria-label="Convenio: Instituto de Topografía y Geomática">LOGO<br>07</button><button class="lc" type="button" data-i="7" aria-label="Convenio: Asfaltos del Pacífico S.A.C.">LOGO<br>08</button><button class="lc" type="button" data-i="8" aria-label="Convenio: Red Latinoamericana de Ingeniería Vial">LOGO<br>09</button><button class="lc" type="button" data-i="9" aria-label="Convenio: Fundación Camino Seguro">LOGO<br>10</button><div class="maq" role="img" aria-label="Rodillo compactador"></div></div><div style="display:contents" aria-hidden="true"><button class="lc" type="button" data-i="0" aria-label="Convenio: Constructora Andina S.A." tabindex="-1">LOGO<br>01</button><button class="lc" type="button" data-i="1" aria-label="Convenio: Municipalidad de Los Olivos" tabindex="-1">LOGO<br>02</button><button class="lc" type="button" data-i="2" aria-label="Convenio: Laboratorio de Suelos y Pavimentos" tabindex="-1">LOGO<br>03</button><button class="lc" type="button" data-i="3" aria-label="Convenio: Colegio de Ingenieros, capítulo regional" tabindex="-1">LOGO<br>04</button><button class="lc" type="button" data-i="4" aria-label="Convenio: Asociación Peruana de Vialidad" tabindex="-1">LOGO<br>05</button><button class="lc" type="button" data-i="5" aria-label="Convenio: Consorcio Vial del Norte" tabindex="-1">LOGO<br>06</button><button class="lc" type="button" data-i="6" aria-label="Convenio: Instituto de Topografía y Geomática" tabindex="-1">LOGO<br>07</button><button class="lc" type="button" data-i="7" aria-label="Convenio: Asfaltos del Pacífico S.A.C." tabindex="-1">LOGO<br>08</button><button class="lc" type="button" data-i="8" aria-label="Convenio: Red Latinoamericana de Ingeniería Vial" tabindex="-1">LOGO<br>09</button><button class="lc" type="button" data-i="9" aria-label="Convenio: Fundación Camino Seguro" tabindex="-1">LOGO<br>10</button><div class="maq" role="img" aria-label="Rodillo compactador"></div></div></div></div></div>
 <div class="cats"><div>Empresas del sector</div><div>Instituciones académicas</div><div>Convenios estratégicos</div><div>Organizaciones profesionales</div></div></div>
 </div></section>
 
@@ -263,6 +296,60 @@ function boing(){
 m.addEventListener('click',function(){
  m.classList.remove('hop');void m.offsetWidth;m.classList.add('hop');boing();
 });
+})();
+</script>
+<div class="md" id="cv" role="dialog" aria-modal="true" aria-labelledby="cvt"><div class="mb" id="cvb"></div>
+<div class="cvc"><button class="mx" id="cvx" type="button" aria-label="Cerrar">×</button><button class="bk" id="bk" type="button" hidden>← Todos</button>
+<div id="cgrid"><h3 class="t0" id="cvt">Convenios y alianzas</h3><p class="sub">Toca un logo para ver la información del convenio.</p><div class="cg" id="cg"></div></div>
+<div class="cd" id="cd" hidden></div></div></div>
+<script>
+(function(){
+var C=[{"n": "Constructora Andina S.A.", "t": "Empresa constructora", "c": "Lima, Perú", "y": 2024, "a": true, "d": "Visitas a obra y prácticas preprofesionales para los estudiantes del grupo.", "ig": "https://www.instagram.com/"}, {"n": "Municipalidad de Los Olivos", "t": "Entidad pública", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Apoyo técnico en inspecciones de puentes y en señalización urbana.", "ig": "https://www.instagram.com/"}, {"n": "Laboratorio de Suelos y Pavimentos", "t": "Laboratorio universitario", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Uso de equipos para ensayos de suelos, asfalto y concreto.", "ig": "https://www.instagram.com/"}, {"n": "Colegio de Ingenieros, capítulo regional", "t": "Colegio profesional", "c": "Lima, Perú", "y": 2022, "a": true, "d": "Charlas, mentorías y certificaciones con descuento para los miembros.", "ig": "https://www.instagram.com/"}, {"n": "Asociación Peruana de Vialidad", "t": "Asociación técnica", "c": "Lima, Perú", "y": 2022, "a": false, "d": "Acceso a seminarios y publicaciones técnicas. El convenio concluyó en 2025.", "ig": "https://www.instagram.com/"}, {"n": "Consorcio Vial del Norte", "t": "Empresa constructora", "c": "Trujillo, Perú", "y": 2025, "a": true, "d": "Charlas técnicas y visitas a proyectos de carretera en el norte del país.", "ig": "https://www.instagram.com/"}, {"n": "Instituto de Topografía y Geomática", "t": "Instituto técnico", "c": "Arequipa, Perú", "y": 2024, "a": true, "d": "Talleres de topografía y uso de estación total.", "ig": "https://www.instagram.com/"}, {"n": "Asfaltos del Pacífico S.A.C.", "t": "Empresa de pavimentos", "c": "Callao, Perú", "y": 2021, "a": false, "d": "Visitas a la planta de asfalto. El convenio ya finalizó.", "ig": "https://www.instagram.com/"}, {"n": "Red Latinoamericana de Ingeniería Vial", "t": "Red académica", "c": "Bogotá, Colombia", "y": 2025, "a": true, "d": "Intercambio de proyectos y ponencias con grupos estudiantiles de la región.", "ig": "https://www.instagram.com/"}, {"n": "Fundación Camino Seguro", "t": "Organización social", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Campañas de seguridad vial y educación en movilidad.", "ig": "https://www.instagram.com/"}];
+function $(i){return document.getElementById(i)}
+var pista=$('pista'),tr=$('track'),cv=$('cv'),cg=$('cg'),cd=$('cd'),gr=$('cgrid'),bk=$('bk'),op=null;
+/* ---- cinta arrastrable ---- */
+var x=0,vx=0,down=false,drag=false,sx=0,lx=0,lt=0,moved=0,hov=false,last=performance.now(),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function W(){return tr.scrollWidth/2}
+x=-W()/2;
+pista.addEventListener('pointerdown',function(e){if(e.button>0)return;down=true;drag=false;sx=lx=e.clientX;lt=e.timeStamp;vx=0;moved=0});
+pista.addEventListener('pointermove',function(e){
+ if(!down)return;
+ if(!drag&&Math.abs(e.clientX-sx)>6){drag=true;lx=sx;try{pista.setPointerCapture(e.pointerId)}catch(_){}pista.classList.add('dragging')}
+ if(drag){var dx=e.clientX-lx,dt=Math.max(1,e.timeStamp-lt);x+=dx;moved=Math.abs(e.clientX-sx);vx=.8*vx+.2*(dx/dt)}
+ lx=e.clientX;lt=e.timeStamp});
+function up(e){if(!down)return;down=false;if(drag){drag=false;pista.classList.remove('dragging');try{pista.releasePointerCapture(e.pointerId)}catch(_){}}}
+pista.addEventListener('pointerup',up);pista.addEventListener('pointercancel',up);
+pista.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hov=true});
+pista.addEventListener('pointerleave',function(){hov=false});
+pista.addEventListener('click',function(e){if(moved>6){e.stopPropagation();e.preventDefault()}moved=0},true);
+function frame(t){var dt=Math.min(50,t-last);last=t;var w=W();
+ if(!drag){if(!rm&&!hov&&!down)x+=.055*dt;if(Math.abs(vx)>.01){x+=vx*dt;vx*=Math.pow(.92,dt/16)}}
+ if(w>0)x=((x%w)-w)%w;
+ tr.style.transform='translate3d('+x+'px,0,0)';requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+/* ---- ventana de convenios ---- */
+function est(a){return '<span class="est '+(a?'on':'off')+'"><i></i>'+(a?'Activo':'Inactivo')+'</span>'}
+function lg(i){return '<span class="lc">LOGO<br>'+('0'+(i+1)).slice(-2)+'</span>'}
+cg.innerHTML=C.map(function(c,i){return '<button class="ci" type="button" data-i="'+i+'">'+lg(i)+est(c.a)+'<b>'+c.n+'</b></button>'}).join('');
+function openModal(btn){op=btn||null;cv.classList.add('open');document.body.style.overflow='hidden';$('cvx').focus()}
+function showGrid(){cd.hidden=true;bk.hidden=true;gr.hidden=false;gr.animate([{opacity:0},{opacity:1}],{duration:300})}
+function showDetail(i,from){
+ var c=C[i];
+ cd.innerHTML='<div class="cl">'+lg(i)+est(c.a)+'</div><div class="inf2"><h3 class="t0" style="--k:0">'+c.n+'</h3>'+
+ '<dl class="meta" style="--k:1"><dt>Tipo</dt><dd>'+c.t+'</dd><dt>Origen</dt><dd>'+c.c+'</dd><dt>Desde</dt><dd>'+c.y+'</dd><dt>Estado</dt><dd>'+(c.a?'Convenio vigente':'Convenio finalizado')+'</dd></dl>'+
+ '<p style="--k:2">'+c.d+'</p><a class="ig" style="--k:3" href="'+c.ig+'" target="_blank" rel="noopener">Ver publicación oficial en Instagram <span aria-hidden="true">↗</span></a></div>';
+ gr.hidden=true;cd.hidden=false;bk.hidden=false;
+ var L=cd.querySelector('.cl .lc');
+ if(from){var r=L.getBoundingClientRect();L.animate([{transformOrigin:'0 0',transform:'translate('+(from.left-r.left)+'px,'+(from.top-r.top)+'px) scale('+(from.width/r.width)+')'},{transformOrigin:'0 0',transform:'none'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'})}
+ else L.animate([{transform:'scale(.5)',opacity:0},{transform:'scale(1)',opacity:1}],{duration:550,easing:'cubic-bezier(.3,1.5,.5,1)'});
+}
+function close(){cv.classList.remove('open');document.body.style.overflow='';if(op)op.focus()}
+$('ver').addEventListener('click',function(){showGrid();gr.hidden=false;openModal(this)});
+tr.addEventListener('click',function(e){var b=e.target.closest('.lc');if(!b)return;openModal(b);showDetail(+b.dataset.i,null)});
+cg.addEventListener('click',function(e){var b=e.target.closest('.ci');if(!b)return;showDetail(+b.dataset.i,b.querySelector('.lc').getBoundingClientRect())});
+bk.addEventListener('click',showGrid);
+$('cvx').addEventListener('click',close);$('cvb').addEventListener('click',close);
+addEventListener('keydown',function(e){if(e.key==='Escape'&&cv.classList.contains('open'))close()});
 })();
 </script>
 </body></html>
