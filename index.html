@@ -178,7 +178,7 @@ section{padding:96px 0;position:relative}
 .igt{display:flex;align-items:center;gap:10px;font:600 12px/1 var(--h);letter-spacing:.16em;text-transform:uppercase;color:#cfd5db;margin:0 0 14px}
 .igt svg{width:16px;height:16px;fill:var(--or)}
 .igt i{width:8px;height:8px;border-radius:50%;background:#3ecf8e;animation:pls 2s infinite}
-.igw{position:relative;height:560px;border-radius:10px;overflow:hidden;background:var(--bg2);border:1px solid var(--ln)}
+.igw{position:relative;height:640px;border-radius:10px;overflow:hidden;background:var(--bg2);border:1px solid var(--ln)}
 .igw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;opacity:0;transition:opacity .5s}
 .igc.ok iframe{opacity:1}
 .igf{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:28px}
@@ -186,7 +186,23 @@ section{padding:96px 0;position:relative}
 .igf svg{width:56px;height:56px}
 .igf b{font:700 17px/1.3 var(--h)}
 .igf p{margin:0;color:#b4bcc5;font-size:14px;max-width:280px}
-@media (max-width:900px){.igg{grid-template-columns:minmax(0,420px)}.igb{padding-bottom:64px}}
+.mes{position:absolute;inset:0;display:flex;flex-direction:column;padding:22px 24px 18px;overflow:auto}
+.mes h3{font:800 17px/1.2 var(--h);text-transform:uppercase;margin:0 0 10px}
+.mes ul{list-style:none;margin:0 0 14px;padding:0}
+.mes li{display:flex;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid var(--ln)}
+.mes li:last-child{border-bottom:0}
+.av{flex:none;width:34px;height:34px;border-radius:50%;background:#1b2330;border:2px solid var(--or);display:grid;place-items:center;font:700 11.5px/1 var(--h);color:var(--or)}
+.mes li b{display:block;font:600 14px/1.25 var(--h)}
+.mes li small{color:#98a2ad;font-size:12px}
+.ars{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-bottom:16px}
+.ar>i{display:block;font:700 11px/1 var(--h);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--or);padding-bottom:6px;border-bottom:1px solid var(--ln)}
+.ar p{margin:7px 0 0;font:600 13px/1.25 var(--h)}
+.ar small{display:block;color:#98a2ad;font:400 11px/1.3 var(--b)}
+.ar .na{color:#7b848e;font-weight:500}
+.que{margin-top:auto;padding-top:12px;border-top:2px solid var(--or)}
+.que b{font:700 12px/1 var(--h);letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.que p{margin:8px 0 0;color:#c3cad1;font-size:13.5px;line-height:1.55}
+@media (max-width:900px){.igg{grid-template-columns:minmax(0,420px)}.igb{padding-bottom:64px}.mesa .igw{height:auto}.mesa .mes{position:relative}}
 @media (max-width:900px){
 .bg{display:block}
 .nv{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(12,16,22,.98);padding:6px 28px 16px;transform:translateY(-130%);transition:transform .3s;z-index:-1}
@@ -230,8 +246,7 @@ section{padding:68px 0}
 <div class="igb" id="instagram"><div class="w"><div class="igg rv">
 <article class="igc" data-url="https://www.instagram.com/p/DeDYdfajajR/"><p class="igt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2.5 21.5 9.5l-2 1-3.2-.9-3.4 3.4.4 4.3-1.4 1.4-3.8-3.8-5 5-.9-.9 5-5L4.4 10.7 5.8 9.3l4.3.4 3.4-3.4-.9-3.2z"/></svg> Publicación fijada</p>
 <div class="igw"><div class="igf"><span style="color:var(--or)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span><b>Publicación fijada</b><p>Mira esta publicación en nuestro Instagram.</p><a class="btn o" href="https://www.instagram.com/p/DeDYdfajajR/" target="_blank" rel="noopener">Abrir en Instagram ↗</a></div></div></article>
-<article class="igc" data-url=""><p class="igt"><i></i> Más reciente</p>
-<div class="igw"><div class="igf"><span style="color:var(--or)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span><b>Nuestras últimas publicaciones</b><p>Síguenos en Instagram para ver lo más reciente del grupo.</p><a class="btn o" href="https://www.instagram.com/" target="_blank" rel="noopener">Ir a Instagram ↗</a></div></div></article>
+<article class="igc mesa"><p class="igt"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 19c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5zM15.5 14c3 0 5.5 1.7 5.5 5h-4.5c0-2-.5-3.5-1-5z"/></svg> Nueva mesa directiva</p><div class="igw"><div class="mes"><h3>Mesa directiva</h3><ul><li><span class="av">LS</span><div><b>Leonardo Sucasaca</b><small>Presidente</small></div></li><li><span class="av">FE</span><div><b>Fermín Esteban</b><small>Vicepresidente</small></div></li><li><span class="av">JG</span><div><b>Jean Gutierrez</b><small>Secretario</small></div></li></ul><div class="ars"><div class="ar"><i>Logística</i><p><small>Director</small>Maicol Arana</p></div><div class="ar"><i>Finanzas</i><p><small>Director</small>Aldair Silva</p><p><small>Subdirector</small>Marco Cenzano</p></div><div class="ar"><i>Investigación</i><p><small>Director</small>Angelo Romero</p><p><small>Subdirector</small><span class="na">N/A</span></p></div><div class="ar"><i>Marketing</i><p><small>Director</small>Katheryne Carrillo</p><p><small>Subdirector</small>Felipe Diego</p></div><div class="ar"><i>RR. HH.</i><p><small>Director</small>Luis Zorrilla</p><p><small>Subdirector</small>Eric Tamayo</p></div><div class="ar"><i>Relaciones Públicas</i><p><small>Directora</small>Milagros Izarra</p></div></div><div class="que"><b>¿Qué hacemos?</b><p>Organizamos ponencias, talleres y visitas técnicas, y tejemos alianzas con empresas e instituciones para formar ingenieros viales más preparados.</p></div></div></div></article>
 </div></div></div>
 
 <section class="act" id="actividades"><div class="w">
