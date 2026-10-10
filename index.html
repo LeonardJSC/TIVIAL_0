@@ -173,6 +173,20 @@ section{padding:96px 0;position:relative}
 .mbub.on{opacity:1;transform:translateX(-50%) scale(1)}
 .maq.vib{animation:vib .1s linear 14}
 @keyframes vib{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
+.igb{padding:8px 0 84px}
+.igg{display:grid;grid-template-columns:repeat(2,minmax(0,400px));justify-content:center;gap:36px}
+.igt{display:flex;align-items:center;gap:10px;font:600 12px/1 var(--h);letter-spacing:.16em;text-transform:uppercase;color:#cfd5db;margin:0 0 14px}
+.igt svg{width:16px;height:16px;fill:var(--or)}
+.igt i{width:8px;height:8px;border-radius:50%;background:#3ecf8e;animation:pls 2s infinite}
+.igw{position:relative;height:560px;border-radius:10px;overflow:hidden;background:var(--bg2);border:1px solid var(--ln)}
+.igw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;opacity:0;transition:opacity .5s}
+.igc.ok iframe{opacity:1}
+.igf{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:28px}
+.igc.ok .igf{display:none}
+.igf svg{width:56px;height:56px}
+.igf b{font:700 17px/1.3 var(--h)}
+.igf p{margin:0;color:#b4bcc5;font-size:14px;max-width:280px}
+@media (max-width:900px){.igg{grid-template-columns:minmax(0,420px)}.igb{padding-bottom:64px}}
 @media (max-width:900px){
 .bg{display:block}
 .nv{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(12,16,22,.98);padding:6px 28px 16px;transform:translateY(-130%);transition:transform .3s;z-index:-1}
@@ -212,6 +226,13 @@ section{padding:68px 0}
 </div></div>
 <div class="pic rv" style="--d:.15s"><blockquote class="q" style="margin:0">El camino no solo se recorre, también se construye con conocimiento.</blockquote></div>
 </div></section>
+
+<div class="igb" id="instagram"><div class="w"><div class="igg rv">
+<article class="igc" data-url="https://www.instagram.com/p/DeDYdfajajR/"><p class="igt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2.5 21.5 9.5l-2 1-3.2-.9-3.4 3.4.4 4.3-1.4 1.4-3.8-3.8-5 5-.9-.9 5-5L4.4 10.7 5.8 9.3l4.3.4 3.4-3.4-.9-3.2z"/></svg> Publicación fijada</p>
+<div class="igw"><div class="igf"><span style="color:var(--or)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span><b>Publicación fijada</b><p>Mira esta publicación en nuestro Instagram.</p><a class="btn o" href="https://www.instagram.com/p/DeDYdfajajR/" target="_blank" rel="noopener">Abrir en Instagram ↗</a></div></div></article>
+<article class="igc" data-url=""><p class="igt"><i></i> Más reciente</p>
+<div class="igw"><div class="igf"><span style="color:var(--or)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span><b>Nuestras últimas publicaciones</b><p>Síguenos en Instagram para ver lo más reciente del grupo.</p><a class="btn o" href="https://www.instagram.com/" target="_blank" rel="noopener">Ir a Instagram ↗</a></div></div></article>
+</div></div></div>
 
 <section class="act" id="actividades"><div class="w">
 <div class="top rv"><div><p class="kick o">Actividades</p><h2>Aprende, participa, <em>crece</em></h2></div>
@@ -447,6 +468,27 @@ tr.addEventListener('click',function(e){
  clearTimeout(vt);vt=setTimeout(function(){m.classList.remove('vib')},1500);
  engine();
 });
+})();
+</script>
+<script>
+(function(){
+var C=[].slice.call(document.querySelectorAll('.igc')),bad=false;
+function embed(u){return u.split('?')[0].replace(/\/?$/,'/')+'embed/'}
+function load(c){
+ var u=c.getAttribute('data-url');if(!u||c.querySelector('iframe')||bad)return;
+ var f=document.createElement('iframe');f.src=embed(u);f.title='Publicación de Instagram';f.loading='lazy';
+ f.setAttribute('scrolling','no');f.setAttribute('allowtransparency','true');
+ f.addEventListener('load',function(){if(!bad)c.classList.add('ok')});
+ c.querySelector('.igw').appendChild(f);
+}
+document.addEventListener('securitypolicyviolation',function(e){
+ if(!/instagram/i.test(e.blockedURI||''))return;
+ bad=true;C.forEach(function(c){c.classList.remove('ok');var f=c.querySelector('iframe');if(f)f.remove()});
+});
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target)}})},{rootMargin:'300px'});
+ C.forEach(function(c){io.observe(c)});
+}else{C.forEach(load)}
 })();
 </script>
 </body></html>
