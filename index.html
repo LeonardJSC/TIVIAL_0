@@ -167,6 +167,12 @@ section{padding:96px 0;position:relative}
 .ig:hover{border-color:var(--or);color:var(--or)}
 .bk{position:absolute;top:12px;right:62px;z-index:5;background:rgba(12,16,22,.7);color:#fff;border:0;padding:0 16px;height:40px;border-radius:20px;font:600 12px/1 var(--h);cursor:pointer;transition:background .2s}
 .bk:hover{background:var(--or);color:#1a1006}
+.lc img{width:100%;height:100%;object-fit:contain;padding:14%;box-sizing:border-box;pointer-events:none;-webkit-user-drag:none}
+.mbub{position:absolute;z-index:4;left:50%;bottom:calc(100% - 24px);transform:translateX(-50%) translateY(6px) scale(.92);width:max-content;max-width:210px;background:#fff;color:#12161d;font:600 13px/1.35 var(--h);padding:9px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.mbub::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#fff}
+.mbub.on{opacity:1;transform:translateX(-50%) scale(1)}
+.maq.vib{animation:vib .1s linear 14}
+@keyframes vib{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
 @media (max-width:900px){
 .bg{display:block}
 .nv{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(12,16,22,.98);padding:6px 28px 16px;transform:translateY(-130%);transition:transform .3s;z-index:-1}
@@ -222,7 +228,7 @@ section{padding:68px 0}
 <div class="rv"><p class="kick o">Alianzas y convenios</p><h2>Juntos hacia grandes proyectos</h2>
 <p class="lead">Fortalecemos nuestro compromiso con la ingeniería vial con apoyo de alianzas y convenios con empresas, instituciones y organizaciones que comparten nuestra visión de desarrollo y mejora de la infraestructura vial.</p>
 <a class="btn d" href="#contacto">Quiero ser aliado →</a></div>
-<div class="rv" style="--d:.15s"><div class="pw" id="pw"><button class="ver" id="ver" type="button" aria-label="Ver todos los convenios">Ver todos <span aria-hidden="true">⤢</span></button><div class="pista" id="pista"><div class="track" id="track"><div style="display:contents"><button class="lc" type="button" data-i="0" aria-label="Convenio: Constructora Andina S.A.">LOGO<br>01</button><button class="lc" type="button" data-i="1" aria-label="Convenio: Municipalidad de Los Olivos">LOGO<br>02</button><button class="lc" type="button" data-i="2" aria-label="Convenio: Laboratorio de Suelos y Pavimentos">LOGO<br>03</button><button class="lc" type="button" data-i="3" aria-label="Convenio: Colegio de Ingenieros, capítulo regional">LOGO<br>04</button><button class="lc" type="button" data-i="4" aria-label="Convenio: Asociación Peruana de Vialidad">LOGO<br>05</button><button class="lc" type="button" data-i="5" aria-label="Convenio: Consorcio Vial del Norte">LOGO<br>06</button><button class="lc" type="button" data-i="6" aria-label="Convenio: Instituto de Topografía y Geomática">LOGO<br>07</button><button class="lc" type="button" data-i="7" aria-label="Convenio: Asfaltos del Pacífico S.A.C.">LOGO<br>08</button><button class="lc" type="button" data-i="8" aria-label="Convenio: Red Latinoamericana de Ingeniería Vial">LOGO<br>09</button><button class="lc" type="button" data-i="9" aria-label="Convenio: Fundación Camino Seguro">LOGO<br>10</button><div class="maq" role="img" aria-label="Rodillo compactador"></div></div><div style="display:contents" aria-hidden="true"><button class="lc" type="button" data-i="0" aria-label="Convenio: Constructora Andina S.A." tabindex="-1">LOGO<br>01</button><button class="lc" type="button" data-i="1" aria-label="Convenio: Municipalidad de Los Olivos" tabindex="-1">LOGO<br>02</button><button class="lc" type="button" data-i="2" aria-label="Convenio: Laboratorio de Suelos y Pavimentos" tabindex="-1">LOGO<br>03</button><button class="lc" type="button" data-i="3" aria-label="Convenio: Colegio de Ingenieros, capítulo regional" tabindex="-1">LOGO<br>04</button><button class="lc" type="button" data-i="4" aria-label="Convenio: Asociación Peruana de Vialidad" tabindex="-1">LOGO<br>05</button><button class="lc" type="button" data-i="5" aria-label="Convenio: Consorcio Vial del Norte" tabindex="-1">LOGO<br>06</button><button class="lc" type="button" data-i="6" aria-label="Convenio: Instituto de Topografía y Geomática" tabindex="-1">LOGO<br>07</button><button class="lc" type="button" data-i="7" aria-label="Convenio: Asfaltos del Pacífico S.A.C." tabindex="-1">LOGO<br>08</button><button class="lc" type="button" data-i="8" aria-label="Convenio: Red Latinoamericana de Ingeniería Vial" tabindex="-1">LOGO<br>09</button><button class="lc" type="button" data-i="9" aria-label="Convenio: Fundación Camino Seguro" tabindex="-1">LOGO<br>10</button><div class="maq" role="img" aria-label="Rodillo compactador"></div></div></div></div></div>
+<div class="rv" style="--d:.15s"><div class="pw" id="pw"><div class="mbub" id="mbub" role="status" aria-live="polite"></div><button class="ver" id="ver" type="button" aria-label="Ver todos los convenios">Ver todos <span aria-hidden="true">⤢</span></button><div class="pista" id="pista"><div class="track" id="track"></div></div></div>
 <div class="cats"><div>Empresas del sector</div><div>Instituciones académicas</div><div>Convenios estratégicos</div><div>Organizaciones profesionales</div></div></div>
 </div></section>
 
@@ -315,11 +321,31 @@ m.addEventListener('click',function(){
 <div class="cd" id="cd" hidden></div></div></div>
 <script>
 (function(){
-var C=[{"n": "Constructora Andina S.A.", "t": "Empresa constructora", "c": "Lima, Perú", "y": 2024, "a": true, "d": "Visitas a obra y prácticas preprofesionales para los estudiantes del grupo.", "ig": "https://www.instagram.com/"}, {"n": "Municipalidad de Los Olivos", "t": "Entidad pública", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Apoyo técnico en inspecciones de puentes y en señalización urbana.", "ig": "https://www.instagram.com/"}, {"n": "Laboratorio de Suelos y Pavimentos", "t": "Laboratorio universitario", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Uso de equipos para ensayos de suelos, asfalto y concreto.", "ig": "https://www.instagram.com/"}, {"n": "Colegio de Ingenieros, capítulo regional", "t": "Colegio profesional", "c": "Lima, Perú", "y": 2022, "a": true, "d": "Charlas, mentorías y certificaciones con descuento para los miembros.", "ig": "https://www.instagram.com/"}, {"n": "Asociación Peruana de Vialidad", "t": "Asociación técnica", "c": "Lima, Perú", "y": 2022, "a": false, "d": "Acceso a seminarios y publicaciones técnicas. El convenio concluyó en 2025.", "ig": "https://www.instagram.com/"}, {"n": "Consorcio Vial del Norte", "t": "Empresa constructora", "c": "Trujillo, Perú", "y": 2025, "a": true, "d": "Charlas técnicas y visitas a proyectos de carretera en el norte del país.", "ig": "https://www.instagram.com/"}, {"n": "Instituto de Topografía y Geomática", "t": "Instituto técnico", "c": "Arequipa, Perú", "y": 2024, "a": true, "d": "Talleres de topografía y uso de estación total.", "ig": "https://www.instagram.com/"}, {"n": "Asfaltos del Pacífico S.A.C.", "t": "Empresa de pavimentos", "c": "Callao, Perú", "y": 2021, "a": false, "d": "Visitas a la planta de asfalto. El convenio ya finalizó.", "ig": "https://www.instagram.com/"}, {"n": "Red Latinoamericana de Ingeniería Vial", "t": "Red académica", "c": "Bogotá, Colombia", "y": 2025, "a": true, "d": "Intercambio de proyectos y ponencias con grupos estudiantiles de la región.", "ig": "https://www.instagram.com/"}, {"n": "Fundación Camino Seguro", "t": "Organización social", "c": "Lima, Perú", "y": 2023, "a": true, "d": "Campañas de seguridad vial y educación en movilidad.", "ig": "https://www.instagram.com/"}];
+/* ===== EDITA AQUÍ LOS CONVENIOS (un convenio por línea) =====
+   n: nombre · t: tipo · c: ciudad y país · y: año de inicio
+   a: true = convenio activo, false = inactivo
+   l: ruta del logo, por ejemplo "logos/andina.png" (si lo dejas vacío se ve el círculo de ejemplo)
+   d: descripción · ig: link de la publicación de Instagram
+   Puedes agregar o borrar líneas; la cinta y la ventana se ajustan solas. ===== */
+var C=[
+  {n:"Constructora Andina S.A.", t:"Empresa constructora", c:"Lima, Perú", y:2024, a:true, l:"", d:"Visitas a obra y prácticas preprofesionales para los estudiantes del grupo.", ig:"https://www.instagram.com/"},
+  {n:"Municipalidad de Los Olivos", t:"Entidad pública", c:"Lima, Perú", y:2023, a:true, l:"", d:"Apoyo técnico en inspecciones de puentes y en señalización urbana.", ig:"https://www.instagram.com/"},
+  {n:"Laboratorio de Suelos y Pavimentos", t:"Laboratorio universitario", c:"Lima, Perú", y:2023, a:true, l:"", d:"Uso de equipos para ensayos de suelos, asfalto y concreto.", ig:"https://www.instagram.com/"},
+  {n:"Colegio de Ingenieros, capítulo regional", t:"Colegio profesional", c:"Lima, Perú", y:2022, a:true, l:"", d:"Charlas, mentorías y certificaciones con descuento para los miembros.", ig:"https://www.instagram.com/"},
+  {n:"Asociación Peruana de Vialidad", t:"Asociación técnica", c:"Lima, Perú", y:2022, a:false, l:"", d:"Acceso a seminarios y publicaciones técnicas. El convenio concluyó en 2025.", ig:"https://www.instagram.com/"},
+  {n:"Consorcio Vial del Norte", t:"Empresa constructora", c:"Trujillo, Perú", y:2025, a:true, l:"", d:"Charlas técnicas y visitas a proyectos de carretera en el norte del país.", ig:"https://www.instagram.com/"},
+  {n:"Instituto de Topografía y Geomática", t:"Instituto técnico", c:"Arequipa, Perú", y:2024, a:true, l:"", d:"Talleres de topografía y uso de estación total.", ig:"https://www.instagram.com/"},
+  {n:"Asfaltos del Pacífico S.A.C.", t:"Empresa de pavimentos", c:"Callao, Perú", y:2021, a:false, l:"", d:"Visitas a la planta de asfalto. El convenio ya finalizó.", ig:"https://www.instagram.com/"},
+  {n:"Red Latinoamericana de Ingeniería Vial", t:"Red académica", c:"Bogotá, Colombia", y:2025, a:true, l:"", d:"Intercambio de proyectos y ponencias con grupos estudiantiles de la región.", ig:"https://www.instagram.com/"},
+  {n:"Fundación Camino Seguro", t:"Organización social", c:"Lima, Perú", y:2023, a:true, l:"", d:"Campañas de seguridad vial y educación en movilidad.", ig:"https://www.instagram.com/"}
+];
+/* ===== FIN DE LA LISTA ===== */
 function $(i){return document.getElementById(i)}
 var pista=$('pista'),tr=$('track'),cv=$('cv'),cg=$('cg'),cd=$('cd'),gr=$('cgrid'),bk=$('bk'),op=null;
 /* ---- cinta arrastrable ---- */
 var x=0,vx=0,down=false,drag=false,sx=0,lx=0,lt=0,moved=0,hov=false,last=performance.now(),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function set(h){return '<div style="display:contents"'+(h?' aria-hidden="true"':'')+'>'+C.map(function(c,i){return '<button class="lc" type="button" data-i="'+i+'" aria-label="Convenio: '+c.n+'"'+(h?' tabindex="-1"':'')+'>'+inn(c,i)+'</button>'}).join('')+'<div class="maq" role="img" aria-label="Rodillo compactador"></div></div>'}
+tr.innerHTML=set(false)+set(true);
 function W(){return tr.scrollWidth/2}
 x=-W()/2;
 pista.addEventListener('pointerdown',function(e){if(e.button>0)return;down=true;drag=false;sx=lx=e.clientX;lt=e.timeStamp;vx=0;moved=0});
@@ -340,7 +366,8 @@ function frame(t){var dt=Math.min(50,t-last);last=t;var w=W();
 requestAnimationFrame(frame);
 /* ---- ventana de convenios ---- */
 function est(a){return '<span class="est '+(a?'on':'off')+'"><i></i>'+(a?'Activo':'Inactivo')+'</span>'}
-function lg(i){return '<span class="lc">LOGO<br>'+('0'+(i+1)).slice(-2)+'</span>'}
+function inn(c,i){return c.l?'<img src="'+c.l+'" alt="'+c.n+'" draggable="false">':'LOGO<br>'+('0'+(i+1)).slice(-2)}
+function lg(i){return '<span class="lc">'+inn(C[i],i)+'</span>'}
 cg.innerHTML=C.map(function(c,i){return '<button class="ci" type="button" data-i="'+i+'">'+lg(i)+est(c.a)+'<b>'+c.n+'</b></button>'}).join('');
 function openModal(btn){op=btn||null;cv.classList.add('open');document.body.style.overflow='hidden';$('cvx').focus()}
 function showGrid(){cd.hidden=true;bk.hidden=true;gr.hidden=false;gr.animate([{opacity:0},{opacity:1}],{duration:300})}
@@ -374,6 +401,52 @@ function show(i){
  cur=i;clearTimeout(tm);tm=setTimeout(function(){show((i+1)%S.length)},D[i]);
 }
 show(0);
+})();
+</script>
+<script>
+(function(){
+var tr=document.getElementById('track'),pw=document.getElementById('pw'),bb=document.getElementById('mbub'),ac=null,tgt=null,ht=null,vt=null,ti=-1;
+var T=['¡Compactando el camino!','¡A todo vapor!','¡Cuidado, obra en marcha!','¡Más firme que el concreto!','¡Casco puesto, siempre!','¡Pista lista, a avanzar!','¡Brrr, brrr, brrr!'];
+function engine(){
+ var C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+ try{ac=ac||new C();if(ac.state==='suspended')ac.resume();
+ var t=ac.currentTime,d=1.6,i;
+ var o=ac.createOscillator(),o2=ac.createOscillator(),l=ac.createOscillator(),lg=ac.createGain(),f=ac.createBiquadFilter(),m=ac.createGain(),g=ac.createGain();
+ o.type='sawtooth';o2.type='square';
+ o.frequency.setValueAtTime(70,t);o.frequency.linearRampToValueAtTime(105,t+.6);o.frequency.linearRampToValueAtTime(85,t+d);
+ o2.frequency.setValueAtTime(35,t);o2.frequency.linearRampToValueAtTime(52,t+.6);o2.frequency.linearRampToValueAtTime(42,t+d);
+ f.type='lowpass';f.frequency.value=600;f.Q.value=2.5;
+ m.gain.value=.55;l.type='square';l.frequency.setValueAtTime(11,t);l.frequency.linearRampToValueAtTime(17,t+.6);l.frequency.linearRampToValueAtTime(13,t+d);lg.gain.value=.45;
+ l.connect(lg);lg.connect(m.gain);
+ var nb=ac.createBuffer(1,Math.floor(ac.sampleRate*d),ac.sampleRate),nd=nb.getChannelData(0);
+ for(i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;
+ var ns=ac.createBufferSource(),nf=ac.createBiquadFilter(),ng=ac.createGain();
+ ns.buffer=nb;nf.type='bandpass';nf.frequency.value=240;nf.Q.value=.8;ng.gain.value=.5;
+ ns.connect(nf);nf.connect(ng);ng.connect(m);
+ g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.55,t+.12);g.gain.setValueAtTime(.55,t+d-.35);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+ o.connect(f);o2.connect(f);f.connect(m);m.connect(g);g.connect(ac.destination);
+ [o,o2,l,ns].forEach(function(n){n.start(t)});[o,o2,l].forEach(function(n){n.stop(t+d+.05)});
+ [.95,1.2].forEach(function(s){var b=ac.createOscillator(),bg=ac.createGain();b.type='square';b.frequency.value=1050;
+  bg.gain.setValueAtTime(.0001,t+s);bg.gain.exponentialRampToValueAtTime(.12,t+s+.01);bg.gain.setValueAtTime(.12,t+s+.14);bg.gain.exponentialRampToValueAtTime(.0001,t+s+.17);
+  b.connect(bg);bg.connect(ac.destination);b.start(t+s);b.stop(t+s+.2)});
+ }catch(e){}
+}
+function follow(){
+ if(!tgt)return;
+ var r=tgt.getBoundingClientRect(),p=pw.getBoundingClientRect(),cx=r.left-p.left+r.width/2;
+ bb.style.left=Math.max(70,Math.min(p.width-70,cx))+'px';
+ bb.style.opacity=(cx<10||cx>p.width-10)?0:'';
+ requestAnimationFrame(follow);
+}
+tr.addEventListener('click',function(e){
+ var m=e.target.closest('.maq');if(!m)return;
+ ti=(ti+1+Math.floor(Math.random()*(T.length-1)))%T.length;bb.textContent=T[ti];
+ tgt=m;bb.classList.add('on');follow();
+ clearTimeout(ht);ht=setTimeout(function(){bb.classList.remove('on');tgt=null},2800);
+ tr.querySelectorAll('.vib').forEach(function(x){x.classList.remove('vib')});void m.offsetWidth;m.classList.add('vib');
+ clearTimeout(vt);vt=setTimeout(function(){m.classList.remove('vib')},1500);
+ engine();
+});
 })();
 </script>
 </body></html>
